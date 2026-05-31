@@ -5,6 +5,8 @@ import PreviewBanner from "@/components/PreviewBanner";
 import Marquee from "@/components/Marquee";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import CartProvider from "@/components/cart/CartProvider";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -19,9 +21,21 @@ const pirata = Pirata_One({
 });
 
 export const metadata: Metadata = {
-  title: "Rain Alternative — Alternative Fashion, Edmonton (Concept Preview)",
+  metadataBase: new URL("https://rain-alternative-demo.vercel.app"),
+  title: {
+    default: "Rain Alternative — Alternative Fashion, Edmonton (Concept Preview)",
+    template: "%s",
+  },
   description:
     "Concept preview of a custom-built store for Rain Alternative: dark, alternative fashion and local consignment in Edmonton, with member rewards and birthday perks.",
+  openGraph: {
+    title: "Rain Alternative — Alternative Fashion, Edmonton",
+    description:
+      "Alternative fashion, accessories, and one-of-a-kind local consignment. Member rewards, birthday perks, and stock you can trust.",
+    type: "website",
+    locale: "en_CA",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -32,11 +46,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${oswald.variable} ${inter.variable} ${pirata.variable}`}>
       <body>
-        <PreviewBanner />
-        <Marquee />
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <CartProvider>
+          <PreviewBanner />
+          <Marquee />
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

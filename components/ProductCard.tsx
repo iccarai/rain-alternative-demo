@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
 import { type Product, money, pointsFor } from "@/lib/products";
 import { Sparkles } from "./icons";
+import { useCart } from "./cart/CartProvider";
 
 export default function ProductCard({
   product,
@@ -9,10 +12,19 @@ export default function ProductCard({
   product: Product;
   index?: number;
 }) {
+  const router = useRouter();
+  const { add } = useCart();
+  const href = `/products/${product.handle}`;
+
   return (
-    <Link
-      href={`/products/${product.handle}`}
-      className="card card-interactive overflow-hidden group flex flex-col reveal"
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={() => router.push(href)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") router.push(href);
+      }}
+      className="card card-interactive overflow-hidden group flex flex-col reveal cursor-pointer"
       style={{ animationDelay: `${Math.min(index, 11) * 45}ms` }}
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-surface-3)]">
@@ -25,7 +37,6 @@ export default function ProductCard({
             product.available ? "" : "opacity-55 saturate-50"
           }`}
         />
-        {/* bottom gradient for legibility */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[var(--color-surface)] to-transparent opacity-80" />
 
         <div className="absolute top-2.5 left-2.5">
@@ -36,12 +47,23 @@ export default function ProductCard({
           )}
         </div>
 
-        {/* quick-add affordance on hover (visual only in demo) */}
         {product.available && (
           <div className="absolute inset-x-2.5 bottom-2.5 translate-y-3 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-            <span className="btn btn-primary w-full !py-2.5 text-[11px]">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                add({
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  image: product.image,
+                  handle: product.handle,
+                });
+              }}
+              className="btn btn-primary w-full !py-2.5 text-[11px]"
+            >
               Quick add
-            </span>
+            </button>
           </div>
         )}
       </div>
@@ -60,6 +82,6 @@ export default function ProductCard({
           </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

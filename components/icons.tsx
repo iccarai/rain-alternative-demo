@@ -78,6 +78,22 @@ export function Truck({ className, strokeWidth }: IconProps) {
   );
 }
 
+export function Menu({ className, strokeWidth }: IconProps) {
+  return (
+    <svg {...base(className, strokeWidth)} aria-hidden="true">
+      <path d="M3 6h18M3 12h18M3 18h18" />
+    </svg>
+  );
+}
+
+export function Close({ className, strokeWidth }: IconProps) {
+  return (
+    <svg {...base(className, strokeWidth)} aria-hidden="true">
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
 export function Cake({ className, strokeWidth }: IconProps) {
   return (
     <svg {...base(className, strokeWidth)} aria-hidden="true">

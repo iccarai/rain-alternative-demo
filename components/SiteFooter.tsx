@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SITE } from "@/lib/site";
 
 export default function SiteFooter() {
@@ -21,10 +22,31 @@ export default function SiteFooter() {
             Shop
           </div>
           <ul className="space-y-2 text-[var(--color-bone)]/80">
-            <li>Women&apos;s &middot; Men&apos;s</li>
-            <li>Band Tees &middot; Shoes</li>
-            <li>Accessories &middot; Lifestyle</li>
-            <li>Bath &amp; Beauty &middot; Consignment</li>
+            <li>
+              <Link href="/collections/women" className="hover:text-[var(--color-magenta)]">
+                Women&apos;s
+              </Link>
+            </li>
+            <li>
+              <Link href="/collections/men" className="hover:text-[var(--color-magenta)]">
+                Men&apos;s
+              </Link>
+            </li>
+            <li>
+              <Link href="/collections/accessories" className="hover:text-[var(--color-magenta)]">
+                Accessories
+              </Link>
+            </li>
+            <li>
+              <Link href="/collections/consignment" className="hover:text-[var(--color-magenta)]">
+                Local Consignment
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="hover:text-[var(--color-magenta)]">
+                About &amp; Visit Us
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="text-sm">

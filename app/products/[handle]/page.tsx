@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { products, getProduct, money, pointsFor } from "@/lib/products";
 import ProductGrid from "@/components/ProductGrid";
 import { Heart, Truck, Sparkles } from "@/components/icons";
+import AddToCartButton from "@/components/cart/AddToCartButton";
 
 export function generateStaticParams() {
   return products.map((p) => ({ handle: p.handle }));
@@ -96,9 +97,7 @@ export default async function ProductPage({
           )}
 
           <div className="flex gap-3 mt-8">
-            <button className="btn btn-primary flex-1" disabled={!product.available}>
-              {product.available ? "Add to cart" : "Sold out"}
-            </button>
+            <AddToCartButton product={product} />
             <button className="btn btn-ghost" aria-label="Save to wishlist">
               <Heart className="h-4 w-4" /> Save
             </button>
