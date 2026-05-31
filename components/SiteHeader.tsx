@@ -13,9 +13,14 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-[rgba(8,8,12,0.78)] border-b hairline">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-baseline gap-2">
-            <span className="wordmark text-2xl sm:text-3xl glow-text">Rain</span>
-            <span className="font-display text-xs tracking-[0.3em] text-[var(--color-muted)] hidden sm:inline">
+          <Link href="/" className="flex items-center gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/rain-logo.png"
+              alt="Rain Alternative"
+              className="logo-invert h-7 sm:h-8 w-auto"
+            />
+            <span className="font-display text-[10px] tracking-[0.3em] text-[var(--color-muted)] hidden sm:inline">
               ALTERNATIVE
             </span>
           </Link>

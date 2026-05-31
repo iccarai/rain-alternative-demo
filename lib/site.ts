@@ -2,9 +2,12 @@
 export const SITE = {
   store: "Rain Alternative",
   city: "Edmonton, AB",
-  // Your agency / contact shown on the preview banner and footer.
-  builtBy: "Commerce Consulting",
-  contactEmail: "commerceconsulting@proton.me",
+  // Who built the preview (shown on the banner + footer credit).
+  builder: "Alex",
+  agency: "Independent Commerce & Consulting",
+  agencyShort: "Independent C&C",
+  agencyUrl: "https://independentcc.com",
+  contactEmail: "info@independentcc.com",
   socials: {
     instagram: "https://instagram.com/rainalternative",
     facebook: "https://facebook.com/RainEdmonton",

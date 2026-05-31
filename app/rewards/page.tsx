@@ -36,7 +36,7 @@ export default function RewardsPage() {
           className="absolute inset-0 opacity-25"
           style={{
             background:
-              "radial-gradient(24rem 16rem at 95% 0%, rgba(255,46,136,0.6), transparent 60%)",
+              "radial-gradient(24rem 16rem at 95% 0%, rgba(59,116,255,0.55), transparent 60%)",
           }}
         />
         <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-6">

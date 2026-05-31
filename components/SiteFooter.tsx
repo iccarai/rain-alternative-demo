@@ -5,9 +5,15 @@ export default function SiteFooter() {
     <footer className="border-t hairline mt-24">
       <div className="mx-auto max-w-6xl px-4 py-12 grid gap-8 sm:grid-cols-3">
         <div>
-          <div className="wordmark text-2xl glow-text">Rain</div>
-          <p className="text-[var(--color-muted)] text-sm mt-2 max-w-xs">
-            Alternative fashion, accessories, and local consignment in {SITE.city}.
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/rain-logo.png"
+            alt="Rain Alternative"
+            className="logo-invert h-9 w-auto"
+          />
+          <p className="text-[var(--color-muted)] text-sm mt-3 max-w-xs">
+            Alternative fashion, accessories, and one-of-a-kind local consignment
+            in {SITE.city}.
           </p>
         </div>
         <div className="text-sm">
@@ -15,10 +21,10 @@ export default function SiteFooter() {
             Shop
           </div>
           <ul className="space-y-2 text-[var(--color-bone)]/80">
-            <li>New Arrivals</li>
-            <li>Women &middot; Men</li>
-            <li>Accessories &middot; Jewelry</li>
-            <li>Local Consignment</li>
+            <li>Women&apos;s &middot; Men&apos;s</li>
+            <li>Band Tees &middot; Shoes</li>
+            <li>Accessories &middot; Lifestyle</li>
+            <li>Bath &amp; Beauty &middot; Consignment</li>
           </ul>
         </div>
         <div className="text-sm">
@@ -40,8 +46,23 @@ export default function SiteFooter() {
       </div>
       <div className="border-t hairline">
         <div className="mx-auto max-w-6xl px-4 py-5 text-xs text-[var(--color-muted)] flex flex-col sm:flex-row gap-2 justify-between">
-          <span>Concept preview built by {SITE.builtBy}. Not the live store.</span>
-          <span>{SITE.contactEmail}</span>
+          <span>&copy; 2026, {SITE.store}</span>
+          <span>
+            Concept preview built by {SITE.builder} at{" "}
+            <a
+              href={SITE.agencyUrl}
+              className="text-[var(--color-bone)] hover:text-[var(--color-magenta)]"
+            >
+              {SITE.agency}
+            </a>{" "}
+            &middot;{" "}
+            <a
+              href={`mailto:${SITE.contactEmail}`}
+              className="hover:text-[var(--color-bone)]"
+            >
+              {SITE.contactEmail}
+            </a>
+          </span>
         </div>
       </div>
     </footer>

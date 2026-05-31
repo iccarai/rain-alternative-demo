@@ -11,22 +11,25 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b hairline">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
-          <span className="chip">Edmonton, AB &middot; Since the underground</span>
-          <h1 className="mt-5 text-5xl sm:text-7xl max-w-3xl glow-text">
-            Wear the dark.
-            <br />
-            Have fun doing it.
-          </h1>
-          <p className="mt-5 text-[var(--color-muted)] max-w-xl text-base sm:text-lg">
+          <span className="chip">Edmonton, AB</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/rain-logo.png"
+            alt="Rain Alternative"
+            className="logo-invert h-24 sm:h-36 w-auto mt-6 glow-text"
+            style={{ filter: "invert(1) brightness(1.6) drop-shadow(0 0 40px rgba(59,116,255,0.45))" }}
+          />
+          <p className="mt-6 text-[var(--color-muted)] max-w-xl text-base sm:text-lg">
             Alternative fashion, accessories, and one-of-a-kind local consignment.
-            Now with member rewards, birthday perks, and stock you can actually trust.
+            Now with member rewards, birthday perks, and stock you can actually
+            trust.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="#shop" className="btn btn-primary">
-              Shop new arrivals
+              Shop all
             </Link>
             <Link href="/rewards" className="btn btn-ghost">
-              Join the coven &middot; rewards
+              Join the rewards club
             </Link>
           </div>
         </div>
@@ -60,25 +63,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured grid */}
+      {/* Featured grid — real store copy */}
       <section id="shop" className="mx-auto max-w-6xl px-4 py-14">
         <div className="flex items-end justify-between mb-6">
-          <h2 className="text-3xl">New &amp; Noteworthy</h2>
-          <span className="text-sm text-[var(--color-muted)]">
-            Live products from the current catalog
-          </span>
+          <h2 className="text-3xl">Shop these new drops!</h2>
+          <Link href="#more" className="text-sm text-[var(--color-muted)] hover:text-[var(--color-bone)]">
+            Shop all &rarr;
+          </Link>
         </div>
         <ProductGrid items={featured} />
       </section>
 
-      {/* Rewards band */}
+      {/* Brand feature — real store copy */}
       <section className="mx-auto max-w-6xl px-4">
         <div className="card p-8 sm:p-12 relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-30"
             style={{
               background:
-                "radial-gradient(30rem 20rem at 90% 20%, rgba(155,92,255,0.5), transparent 60%)",
+                "radial-gradient(30rem 20rem at 10% 20%, rgba(106,75,255,0.5), transparent 60%)",
+            }}
+          />
+          <div className="relative max-w-xl">
+            <span className="chip">Featured brand</span>
+            <h2 className="text-4xl mt-4">
+              Meet one of our favourite brands, Dark in Love!
+            </h2>
+            <p className="text-[var(--color-muted)] mt-3">
+              Gothic silhouettes, batwing skirts, and statement pieces, in stock
+              and ready to ship from Edmonton.
+            </p>
+            <Link href="#shop" className="btn btn-ghost mt-6">
+              View all
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Rewards band */}
+      <section className="mx-auto max-w-6xl px-4 mt-6">
+        <div className="card p-8 sm:p-12 relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              background:
+                "radial-gradient(30rem 20rem at 90% 20%, rgba(59,116,255,0.5), transparent 60%)",
             }}
           />
           <div className="relative max-w-xl">
@@ -95,10 +124,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* More products */}
-      <section className="mx-auto max-w-6xl px-4 py-14">
-        <h2 className="text-3xl mb-6">More in store</h2>
+      {/* Festival season — real store copy */}
+      <section id="more" className="mx-auto max-w-6xl px-4 py-14">
+        <div className="flex items-end justify-between mb-2">
+          <h2 className="text-3xl">Festival Season</h2>
+          <Link href="#shop" className="text-sm text-[var(--color-muted)] hover:text-[var(--color-bone)]">
+            View all &rarr;
+          </Link>
+        </div>
+        <p className="text-[var(--color-muted)] mb-6">
+          Get ready for festival season with our collection of festival
+          accessories.
+        </p>
         <ProductGrid items={rest} />
+      </section>
+
+      {/* Newsletter — real store copy */}
+      <section className="mx-auto max-w-6xl px-4">
+        <div className="card p-8 sm:p-12 text-center">
+          <h2 className="text-3xl">Subscribe to our emails</h2>
+          <p className="text-[var(--color-muted)] mt-3 max-w-md mx-auto">
+            Be the first to know about new drops, exclusive member offers, and
+            in-store events.
+          </p>
+          <div className="mt-6 flex max-w-md mx-auto gap-2">
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="flex-1 bg-[var(--color-surface-2)] border hairline rounded-lg px-4 py-3 text-sm outline-none focus:border-[var(--color-magenta)]"
+            />
+            <button className="btn btn-primary">Subscribe</button>
+          </div>
+        </div>
       </section>
     </>
   );
