@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Cake, Sparkles } from "@/components/icons";
 
 const REWARDS = [
   { cost: 250, label: "$5 off your next order" },
@@ -47,7 +48,7 @@ export default function RewardsPage() {
           </div>
           <div className="text-right">
             <div className="text-sm text-[var(--color-muted)]">Points balance</div>
-            <div className="font-display text-5xl text-[var(--color-acid)]">
+            <div className="price font-display text-5xl text-[var(--color-acid)]">
               {points.toLocaleString()}
             </div>
           </div>
@@ -73,8 +74,10 @@ export default function RewardsPage() {
       {/* Birthday + redeem */}
       <div className="grid md:grid-cols-2 gap-6 mt-6">
         <div className="card p-6">
-          <div className="text-2xl">🎂</div>
-          <h2 className="text-2xl mt-2">Birthday perk</h2>
+          <span className="grid place-items-center h-11 w-11 rounded-lg bg-[rgba(79,134,255,0.12)] border border-[var(--color-line-strong)] text-[var(--color-magenta)]">
+            <Cake />
+          </span>
+          <h2 className="text-2xl mt-3">Birthday perk</h2>
           <p className="text-[var(--color-muted)] mt-2 text-sm">
             Add your birthday and we automatically drop 150 points and a member
             discount into your account on your day. No reminders to set, it just

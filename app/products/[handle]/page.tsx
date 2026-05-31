@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products, getProduct, money, pointsFor } from "@/lib/products";
 import ProductGrid from "@/components/ProductGrid";
+import { Heart, Truck, Sparkles } from "@/components/icons";
 
 export function generateStaticParams() {
   return products.map((p) => ({ handle: p.handle }));
@@ -63,9 +64,9 @@ export default async function ProductPage({
           <h1 className="text-4xl mt-2">{product.title}</h1>
 
           <div className="flex items-center gap-4 mt-4">
-            <span className="font-display text-3xl">{money(product.price)}</span>
+            <span className="price font-display text-3xl">{money(product.price)}</span>
             {product.compareAt && (
-              <span className="text-[var(--color-muted)] line-through">
+              <span className="price text-[var(--color-muted)] line-through">
                 {money(product.compareAt)}
               </span>
             )}
@@ -76,7 +77,8 @@ export default async function ProductPage({
             )}
           </div>
 
-          <p className="text-[var(--color-acid)] text-sm mt-3">
+          <p className="flex items-center gap-1.5 text-[var(--color-acid)] text-sm mt-3">
+            <Sparkles className="h-4 w-4" />
             Earn {pointsFor(product.price)} Rain Rewards points with this piece
           </p>
 
@@ -87,7 +89,7 @@ export default async function ProductPage({
               </div>
               <div className="flex flex-wrap gap-2">
                 {sizeOption.values.map((v) => (
-                  <span key={v} className="chip cursor-pointer hover:border-[var(--color-magenta)]">
+                  <span key={v} className="chip chip-selectable">
                     {v}
                   </span>
                 ))}
@@ -99,7 +101,9 @@ export default async function ProductPage({
             <button className="btn btn-primary flex-1" disabled={!product.available}>
               {product.available ? "Add to cart" : "Sold out"}
             </button>
-            <button className="btn btn-ghost">♡ Save</button>
+            <button className="btn btn-ghost" aria-label="Save to wishlist">
+              <Heart className="h-4 w-4" /> Save
+            </button>
           </div>
 
           <div className="card p-4 mt-6 text-sm text-[var(--color-muted)]">
@@ -110,8 +114,10 @@ export default async function ProductPage({
             </p>
           </div>
 
-          <div className="mt-6 text-sm text-[var(--color-muted)] space-y-1">
-            <p>Free local pickup in {`Edmonton`}.</p>
+          <div className="mt-6 text-sm text-[var(--color-muted)] space-y-2">
+            <p className="flex items-center gap-2">
+              <Truck className="h-4 w-4" /> Free local pickup in Edmonton.
+            </p>
             <p>Category: {product.type}</p>
           </div>
         </div>

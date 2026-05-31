@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { products } from "@/lib/products";
 import ProductGrid from "@/components/ProductGrid";
+import { Truck, Sparkles, Cake, ArrowRight } from "@/components/icons";
 
 export default function Home() {
   const featured = products.slice(0, 12);
@@ -37,26 +38,31 @@ export default function Home() {
 
       {/* Value strip */}
       <section className="border-b hairline bg-[var(--color-surface)]/40">
-        <div className="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3 text-sm">
+        <div className="mx-auto max-w-6xl px-4 py-9 grid gap-7 sm:grid-cols-3 text-sm">
           {[
             {
+              Icon: Sparkles,
               t: "Real-time stock",
               d: "If it sells in the shop, it disappears online instantly. No more 'sold out at checkout'.",
             },
             {
+              Icon: Truck,
               t: "Earn on every order",
               d: "Points online and in-store, one balance, redeemable for discounts.",
             },
             {
+              Icon: Cake,
               t: "Birthday perks",
               d: "A little something dark and sweet in your inbox on your day.",
             },
-          ].map((f) => (
-            <div key={f.t} className="flex gap-3">
-              <span className="text-[var(--color-magenta)] text-xl leading-none">✦</span>
+          ].map(({ Icon, t, d }) => (
+            <div key={t} className="flex gap-3.5">
+              <span className="grid place-items-center h-10 w-10 shrink-0 rounded-lg bg-[rgba(79,134,255,0.12)] border border-[var(--color-line-strong)] text-[var(--color-magenta)]">
+                <Icon />
+              </span>
               <div>
-                <div className="font-display tracking-wide">{f.t}</div>
-                <p className="text-[var(--color-muted)] mt-1">{f.d}</p>
+                <div className="font-display tracking-wide text-base">{t}</div>
+                <p className="text-[var(--color-muted)] mt-1 leading-relaxed">{d}</p>
               </div>
             </div>
           ))}
@@ -66,9 +72,13 @@ export default function Home() {
       {/* Featured grid — real store copy */}
       <section id="shop" className="mx-auto max-w-6xl px-4 py-14">
         <div className="flex items-end justify-between mb-6">
-          <h2 className="text-3xl">Shop these new drops!</h2>
-          <Link href="#more" className="text-sm text-[var(--color-muted)] hover:text-[var(--color-bone)]">
-            Shop all &rarr;
+          <h2 className="text-3xl sm:text-4xl">Shop these new drops!</h2>
+          <Link
+            href="#more"
+            className="group inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-bone)] transition-colors"
+          >
+            Shop all
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
         <ProductGrid items={featured} />
@@ -127,9 +137,13 @@ export default function Home() {
       {/* Festival season — real store copy */}
       <section id="more" className="mx-auto max-w-6xl px-4 py-14">
         <div className="flex items-end justify-between mb-2">
-          <h2 className="text-3xl">Festival Season</h2>
-          <Link href="#shop" className="text-sm text-[var(--color-muted)] hover:text-[var(--color-bone)]">
-            View all &rarr;
+          <h2 className="text-3xl sm:text-4xl">Festival Season</h2>
+          <Link
+            href="#shop"
+            className="group inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-bone)] transition-colors"
+          >
+            View all
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
         <p className="text-[var(--color-muted)] mb-6">

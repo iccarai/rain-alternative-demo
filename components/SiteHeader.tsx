@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Search, Bag } from "./icons";
 
 const NAV = [
   { label: "Women", href: "/" },
@@ -37,17 +38,29 @@ export default function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4 text-sm">
-            <span className="hidden sm:inline text-[var(--color-muted)]">Search</span>
-            <Link href="/rewards" className="relative">
+          <div className="flex items-center gap-1 sm:gap-2 text-sm">
+            <button
+              aria-label="Search"
+              className="grid place-items-center h-11 w-11 rounded-lg text-[var(--color-bone)]/80 hover:text-white hover:bg-white/5 transition-colors"
+            >
+              <Search />
+            </button>
+            <Link
+              href="/rewards"
+              className="hidden sm:inline-flex"
+              aria-label="Member rewards"
+            >
               <span className="badge badge-stock">Member</span>
             </Link>
-            <span className="relative">
-              Cart
-              <span className="absolute -top-2 -right-3 text-[10px] bg-[var(--color-magenta)] text-white rounded-full px-1.5 py-0.5">
+            <button
+              aria-label="Cart, 2 items"
+              className="relative grid place-items-center h-11 w-11 rounded-lg text-[var(--color-bone)]/80 hover:text-white hover:bg-white/5 transition-colors"
+            >
+              <Bag />
+              <span className="absolute top-1.5 right-1 text-[10px] font-bold bg-[var(--color-magenta)] text-white rounded-full h-4 min-w-4 px-1 grid place-items-center">
                 2
               </span>
-            </span>
+            </button>
           </div>
         </div>
 
