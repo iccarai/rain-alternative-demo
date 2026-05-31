@@ -394,6 +394,46 @@ a {
   box-shadow: 0 0 14px rgba(79, 134, 255, 0.7), 0 0 26px rgba(255, 61, 240, 0.45);
 }
 
+/* Neon rainfall (hero brand effect) */
+.rainfall {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.rain-drop {
+  position: absolute;
+  top: 0;
+  width: 1.5px;
+  border-radius: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    currentColor 45%,
+    currentColor 60%,
+    transparent
+  );
+  filter: drop-shadow(0 0 6px currentColor);
+  animation-name: rain-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+@keyframes rain-fall {
+  from {
+    transform: translateY(-180px);
+  }
+  to {
+    transform: translateY(88vh);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rainfall {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

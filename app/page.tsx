@@ -2,6 +2,8 @@ import Link from "next/link";
 import { products } from "@/lib/products";
 import ProductGrid from "@/components/ProductGrid";
 import { Truck, Sparkles, Cake, ArrowRight } from "@/components/icons";
+import RainOverlay from "@/components/RainOverlay";
+import HeroLogo from "@/components/HeroLogo";
 
 export default function Home() {
   const featured = products.slice(0, 12);
@@ -12,17 +14,13 @@ export default function Home() {
       {/* Hero — neon typographic */}
       <section className="relative overflow-hidden border-b hairline scanlines min-h-[78vh] flex items-center">
         <div className="aurora" />
+        <RainOverlay />
         <span className="ghost-word absolute inset-0 flex items-center justify-center text-[40vw] sm:text-[28vw]">
           RAIN
         </span>
         <div className="relative z-10 mx-auto max-w-6xl px-4 w-full text-center py-16">
           <span className="eyebrow">✦ Alternative // Edmonton ✦</span>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/rain-logo.png"
-            alt="Rain Alternative"
-            className="neon-logo mx-auto h-32 sm:h-52 w-auto mt-7"
-          />
+          <HeroLogo />
           <p className="mt-8 text-[var(--color-bone)]/85 max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
             Alternative fashion, accessories, and one-of-a-kind local consignment.
             Member rewards, birthday perks, and stock you can actually trust.
