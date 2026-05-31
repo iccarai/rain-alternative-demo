@@ -181,7 +181,7 @@ a {
     border-color 0.28s var(--ease-out);
 }
 .card-interactive:hover {
-  transform: translateY(-6px);
+  /* lift is handled by Framer Motion (whileHover); CSS only does the glow */
   border-color: var(--color-magenta);
   box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(79, 134, 255, 0.6),
     0 0 26px rgba(79, 134, 255, 0.45), 0 0 46px rgba(255, 61, 240, 0.28);

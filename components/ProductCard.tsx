@@ -1,31 +1,39 @@
 "use client";
 
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { type Product, money, pointsFor } from "@/lib/products";
 import { Sparkles } from "./icons";
 import { useCart } from "./cart/CartProvider";
 
-export default function ProductCard({
-  product,
-  index = 0,
-}: {
-  product: Product;
-  index?: number;
-}) {
+const item: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 300, damping: 26 },
+  },
+};
+
+export default function ProductCard({ product }: { product: Product }) {
   const router = useRouter();
   const { add } = useCart();
+  const reduce = useReducedMotion();
   const href = `/products/${product.handle}`;
 
   return (
-    <div
+    <motion.div
+      variants={item}
+      whileHover={reduce ? undefined : { y: -6 }}
+      transition={{ type: "spring", stiffness: 400, damping: 26 }}
       role="link"
       tabIndex={0}
       onClick={() => router.push(href)}
       onKeyDown={(e) => {
         if (e.key === "Enter") router.push(href);
       }}
-      className="card card-interactive overflow-hidden group flex flex-col reveal cursor-pointer"
-      style={{ animationDelay: `${Math.min(index, 11) * 45}ms` }}
+      className="card card-interactive overflow-hidden group flex flex-col cursor-pointer"
+      style={{ willChange: "transform" }}
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-surface-3)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -49,7 +57,8 @@ export default function ProductCard({
 
         {product.available && (
           <div className="absolute inset-x-2.5 bottom-2.5 translate-y-3 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-            <button
+            <motion.button
+              whileTap={{ scale: 0.96 }}
               onClick={(e) => {
                 e.stopPropagation();
                 add({
@@ -63,7 +72,7 @@ export default function ProductCard({
               className="btn btn-primary w-full !py-2.5 text-[11px]"
             >
               Quick add
-            </button>
+            </motion.button>
           </div>
         )}
       </div>
@@ -82,6 +91,6 @@ export default function ProductCard({
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
