@@ -33,7 +33,7 @@ export default async function ProductPage({
       <div className="grid lg:grid-cols-2 gap-10 mt-6">
         {/* Gallery */}
         <div>
-          <div className="card overflow-hidden aspect-[4/5] bg-[var(--color-surface-2)]">
+          <div className="card neon-frame overflow-hidden aspect-[4/5] bg-[var(--color-surface-2)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.image}
@@ -46,7 +46,7 @@ export default async function ProductPage({
               {product.images.map((src, i) => (
                 <div
                   key={i}
-                  className="card overflow-hidden aspect-square bg-[var(--color-surface-2)]"
+                  className="card neon-frame overflow-hidden aspect-square bg-[var(--color-surface-2)]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={src} alt="" className="h-full w-full object-cover" />
@@ -58,10 +58,8 @@ export default async function ProductPage({
 
         {/* Details */}
         <div>
-          <span className="text-xs uppercase tracking-widest text-[var(--color-muted)]">
-            {product.vendor}
-          </span>
-          <h1 className="text-4xl mt-2">{product.title}</h1>
+          <span className="eyebrow">{product.vendor}</span>
+          <h1 className="text-4xl sm:text-5xl mt-3 neon-text">{product.title}</h1>
 
           <div className="flex items-center gap-4 mt-4">
             <span className="price font-display text-3xl">{money(product.price)}</span>
@@ -77,7 +75,7 @@ export default async function ProductPage({
             )}
           </div>
 
-          <p className="flex items-center gap-1.5 text-[var(--color-acid)] text-sm mt-3">
+          <p className="flex items-center gap-1.5 text-[var(--color-acid)] neon-text-mint text-sm mt-3">
             <Sparkles className="h-4 w-4" />
             Earn {pointsFor(product.price)} Rain Rewards points with this piece
           </p>
@@ -106,7 +104,7 @@ export default async function ProductPage({
             </button>
           </div>
 
-          <div className="card p-4 mt-6 text-sm text-[var(--color-muted)]">
+          <div className="card neon-frame p-4 mt-6 text-sm text-[var(--color-muted)]">
             <p>
               One-of-a-kind and consignment pieces are tracked individually. When
               this item sells, in the shop or online, it comes off the site
@@ -125,7 +123,8 @@ export default async function ProductPage({
 
       {related.length > 0 && (
         <section className="mt-20">
-          <h2 className="text-3xl mb-6">You may also like</h2>
+          <span className="eyebrow">✦ More like this</span>
+          <h2 className="text-3xl sm:text-4xl mt-2 mb-6">You may also like</h2>
           <ProductGrid items={related} />
         </section>
       )}

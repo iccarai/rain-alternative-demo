@@ -24,22 +24,16 @@ export default function RewardsPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <span className="chip">Member hub &middot; preview</span>
-      <h1 className="text-5xl mt-4 glow-text">Rain Rewards Club</h1>
+      <span className="eyebrow">✦ Member hub &middot; preview</span>
+      <h1 className="text-5xl sm:text-6xl mt-4 neon-text">Rain Rewards Club</h1>
       <p className="text-[var(--color-muted)] mt-3 max-w-xl">
         This is the member portal your customers log into. One account ties their
         online and in-store purchases together. Below is a sample logged-in view.
       </p>
 
       {/* Member dashboard mock */}
-      <div className="card p-6 sm:p-8 mt-8 relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-25"
-          style={{
-            background:
-              "radial-gradient(24rem 16rem at 95% 0%, rgba(59,116,255,0.55), transparent 60%)",
-          }}
-        />
+      <div className="card neon-frame scanlines p-6 sm:p-8 mt-8 relative overflow-hidden">
+        <div className="aurora" style={{ opacity: 0.5 }} />
         <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div>
             <div className="text-sm text-[var(--color-muted)]">Welcome back,</div>
@@ -48,7 +42,7 @@ export default function RewardsPage() {
           </div>
           <div className="text-right">
             <div className="text-sm text-[var(--color-muted)]">Points balance</div>
-            <div className="price font-display text-5xl text-[var(--color-acid)]">
+            <div className="price font-display text-5xl text-[var(--color-acid)] neon-text-mint">
               {points.toLocaleString()}
             </div>
           </div>
@@ -61,7 +55,7 @@ export default function RewardsPage() {
           </div>
           <div className="h-2 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
             <div
-              className="h-full rounded-full"
+              className="h-full rounded-full neon-bar"
               style={{
                 width: `${pct}%`,
                 background: "linear-gradient(90deg, var(--color-magenta), var(--color-violet))",
@@ -73,7 +67,7 @@ export default function RewardsPage() {
 
       {/* Birthday + redeem */}
       <div className="grid md:grid-cols-2 gap-6 mt-6">
-        <div className="card p-6">
+        <div className="card neon-frame p-6">
           <span className="grid place-items-center h-11 w-11 rounded-lg bg-[rgba(79,134,255,0.12)] border border-[var(--color-line-strong)] text-[var(--color-magenta)]">
             <Cake />
           </span>
@@ -90,7 +84,7 @@ export default function RewardsPage() {
           </div>
         </div>
 
-        <div className="card p-6">
+        <div className="card neon-frame p-6">
           <h2 className="text-2xl">Redeem points</h2>
           <ul className="mt-4 space-y-3">
             {REWARDS.map((r) => (
@@ -113,7 +107,7 @@ export default function RewardsPage() {
       </div>
 
       {/* Ways to earn */}
-      <div className="card p-6 mt-6">
+      <div className="card neon-frame p-6 mt-6">
         <h2 className="text-2xl">Ways to earn</h2>
         <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3 mt-4">
           {EARN.map((e) => (
