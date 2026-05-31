@@ -9,28 +9,30 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b hairline">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:py-28">
-          <span className="chip">Edmonton, AB</span>
+      {/* Hero — neon typographic */}
+      <section className="relative overflow-hidden border-b hairline scanlines min-h-[78vh] flex items-center">
+        <div className="aurora" />
+        <span className="ghost-word absolute inset-0 flex items-center justify-center text-[40vw] sm:text-[28vw]">
+          RAIN
+        </span>
+        <div className="relative z-10 mx-auto max-w-6xl px-4 w-full text-center py-16">
+          <span className="eyebrow">✦ Alternative // Edmonton ✦</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/rain-logo.png"
             alt="Rain Alternative"
-            className="logo-invert h-24 sm:h-36 w-auto mt-6 glow-text"
-            style={{ filter: "invert(1) brightness(1.6) drop-shadow(0 0 40px rgba(59,116,255,0.45))" }}
+            className="neon-logo mx-auto h-32 sm:h-52 w-auto mt-7"
           />
-          <p className="mt-6 text-[var(--color-muted)] max-w-xl text-base sm:text-lg">
+          <p className="mt-8 text-[var(--color-bone)]/85 max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
             Alternative fashion, accessories, and one-of-a-kind local consignment.
-            Now with member rewards, birthday perks, and stock you can actually
-            trust.
+            Member rewards, birthday perks, and stock you can actually trust.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-9 flex flex-wrap gap-3 justify-center">
             <Link href="#shop" className="btn btn-primary">
               Shop all
             </Link>
             <Link href="/rewards" className="btn btn-ghost">
-              Join the rewards club
+              Rewards
             </Link>
           </div>
         </div>
@@ -95,8 +97,8 @@ export default function Home() {
             }}
           />
           <div className="relative max-w-xl">
-            <span className="chip">Featured brand</span>
-            <h2 className="text-4xl mt-4">
+            <span className="eyebrow">✦ Featured brand</span>
+            <h2 className="text-4xl sm:text-5xl mt-4">
               Meet one of our favourite brands, Dark in Love!
             </h2>
             <p className="text-[var(--color-muted)] mt-3">
@@ -121,8 +123,8 @@ export default function Home() {
             }}
           />
           <div className="relative max-w-xl">
-            <span className="chip">Members</span>
-            <h2 className="text-4xl mt-4">The Rain Rewards Club</h2>
+            <span className="eyebrow">✦ Members</span>
+            <h2 className="text-4xl sm:text-5xl mt-4">The Rain Rewards Club</h2>
             <p className="text-[var(--color-muted)] mt-3">
               Sign in, watch your points stack, climb the tiers, and unlock
               member-only drops. One account, online and in the shop.

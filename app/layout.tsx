@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Oswald, Inter, Pirata_One } from "next/font/google";
 import "./globals.css";
 import PreviewBanner from "@/components/PreviewBanner";
-import AnnouncementBar from "@/components/AnnouncementBar";
+import Marquee from "@/components/Marquee";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -33,8 +33,8 @@ export default function RootLayout({
     <html lang="en" className={`${oswald.variable} ${inter.variable} ${pirata.variable}`}>
       <body>
         <PreviewBanner />
+        <Marquee />
         <SiteHeader />
-        <AnnouncementBar />
         <main>{children}</main>
         <SiteFooter />
       </body>
